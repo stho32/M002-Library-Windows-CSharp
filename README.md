@@ -1,4 +1,4 @@
-# DotNet 6 app repository template
+# SQL Code Formatter Library
 
 The project is based on these [Requirements](Documentation/requirements.md) and is considered https://github.com/stho32/Training .
 
