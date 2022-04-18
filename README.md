@@ -2,6 +2,22 @@
 
 The project is based on these [Requirements](Documentation/requirements.md) and is considered https://github.com/stho32/Training .
 
+```
+Your Challenge: 
+
+    from the category    : Tool Projects
+    implement the project: M002 SQL Code Formatter
+    as                   : Library
+    using                : CSharp
+    supporting at least  : Windows
+
+
+
+  project name for github: M002-Library-Windows-CSharp
+
+See https://github.com/stho32/Training for the needed details like the project description.
+```
+
 ## Badges
 
 - [ ] Add a badge from the build workflow
