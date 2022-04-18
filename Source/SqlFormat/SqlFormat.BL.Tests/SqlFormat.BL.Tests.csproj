@@ -16,4 +16,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SqlFormat.BL\SqlFormat.BL.csproj" />
+    <ProjectReference Include="..\SqlFormat.Interfaces\SqlFormat.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>
