@@ -9,4 +9,3 @@ public class SqlScanner : ISqlScanner
         return sqlInput.Split(" ", StringSplitOptions.RemoveEmptyEntries);
     }
 }
-
