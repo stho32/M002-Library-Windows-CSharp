@@ -3,7 +3,9 @@
 - [ ] The input should be presented as text. The engine splits the text, parses it and then formats the results.
 
 - [ ] Be able to format the following SQL elements
-  - [ ] SELECT clause
+  - [X] columns which are listed horizontally
+  - [ ] columns which are listed vertically
+  - [O] SELECT clause
     - [ ] columns with name
     - [ ] columns with case statements
     - [ ] columns with subselects

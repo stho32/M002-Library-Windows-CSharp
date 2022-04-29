@@ -14,9 +14,9 @@ public class SelectSqlPart : ISqlPart
 
     public string Render()
     {
-        var result = new StringBuilder();
-
-        result.AppendLine($"SELECT {_columns}");
+        var result = new TextEditor();
+        
+        result.AddRow($"SELECT {_columns}");
 
         return result.ToString();
     }
