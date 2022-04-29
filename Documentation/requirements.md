@@ -4,7 +4,7 @@
 
 - [ ] Be able to format the following SQL elements
   - [X] columns which are listed horizontally
-  - [ ] columns which are listed vertically
+  - [X] columns which are listed vertically
   - [O] SELECT clause
     - [ ] columns with name
     - [ ] columns with case statements
