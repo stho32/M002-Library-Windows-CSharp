@@ -8,6 +8,6 @@ public class VerticalColumnBlock : ColumnBlockBase
 
     public override string Render()
     {
-        throw new NotImplementedException();
+        return string.Join("," + Environment.NewLine, Columns);
     }
 }
