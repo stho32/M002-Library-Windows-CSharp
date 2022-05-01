@@ -6,7 +6,7 @@ namespace SqlFormat.BL.Tests.ColumnBlocks;
 
 public class VerticalColumnBlockTests
 {
-    private IRenderedText GetColumnBlock(string[] columns)
+    private ITextRenderer GetColumnBlock(string[] columns)
     {
         return new VerticalColumnBlock(columns);
     }
