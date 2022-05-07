@@ -27,16 +27,16 @@
   - [ ] an ITextBlock has a height, width and a content.
   - [ ] an ITextBlock has an x and a y coordinate.
 
-- [ ] There is something that is described as an ITextRenderer.
-  - [ ] an ITextRenderer is a canvas on which ITextBlocks are drawn.
+- [ ] There is something that is described as an ITextCanvas.
+  - [ ] an ITextCanvas is a canvas on which ITextBlocks are drawn.
   - [ ] TextBlocks are therein simply replacing existing content by their own content.
 
 
 
 - [ ] Be able to format the following SQL elements
-  - [X] columns which are listed horizontally
-  - [X] columns which are listed vertically
-  - [O] SELECT clause
+  - [ ] columns which are listed horizontally
+  - [ ] columns which are listed vertically
+  - [ ] SELECT clause
     - [ ] columns with name
     - [ ] columns with case statements
     - [ ] columns with subselects
