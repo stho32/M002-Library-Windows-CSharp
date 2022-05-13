@@ -10,6 +10,7 @@ public class TextCanvas : ITextCanvas
 
         foreach (var textBlock in textBlocks)
         {
+            EnterEnoughWhitespaceIntoBuffer(textBlock, result);
             PlaceContent(textBlock, result);
         }
         
@@ -18,24 +19,41 @@ public class TextCanvas : ITextCanvas
 
     private static void PlaceContent(ITextBlock textBlock, List<string> result)
     {
-        var rowNumber = textBlock.Y;
-        foreach (var row in textBlock.Content)
+        for (int i = 0; i < textBlock.Height; i++)
         {
-            PlaceRow(rowNumber, textBlock.X, row, result);
-            rowNumber += 1;
+            var realPositionY = textBlock.Y + i;
+            var charArray = result[realPositionY].ToCharArray();
+
+            for (int j = 0; j < textBlock.Content[i].Length; j++)
+            {
+                var realPositionX = textBlock.X + j;
+                charArray[realPositionX] = textBlock.Content[i][j];
+            }
+
+            result[realPositionY] = new string(charArray);
         }
     }
 
-    private static void PlaceRow(int rowIndex, int columnIndex, string rowContent, List<string> result)
+    private static void EnterEnoughWhitespaceIntoBuffer(ITextBlock textBlock, List<string> textBuffer)
     {
-        AddEmptyRowsUntilBufferHasEnoughToFitContent(rowIndex, result);
-    }
-
-    private static void AddEmptyRowsUntilBufferHasEnoughToFitContent(int rowIndex, List<string> result)
-    {
-        while (result.Count <= rowIndex)
+        var maximumY = textBlock.Y + textBlock.Height;
+        
+        while (textBuffer.Count < maximumY)
         {
-            result.Add("");
+            textBuffer.Add("");
+        }
+
+        for (int i = textBlock.Y; i < maximumY; i++)
+        {
+            var maximumWidth = textBlock.X + textBlock.Width;
+
+            if (textBuffer[i].Length < maximumWidth)
+            {
+                var missingLength = maximumWidth - textBuffer[i].Length;
+                var missingLengthInSpaces = new string(' ', missingLength);
+                textBuffer[i] += missingLengthInSpaces;
+            }
         }
     }
+
 }
