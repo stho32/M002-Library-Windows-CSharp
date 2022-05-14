@@ -14,20 +14,30 @@ public class TextCanvas : ITextCanvas
             PlaceContent(textBlock, result);
         }
         
-        return result.ToArray();
+        return TrimAllRows(result.ToArray());
+    }
+
+    private string[] TrimAllRows(string[] arrayOfStrings)
+    {
+        return arrayOfStrings
+            .Select(x => x.TrimEnd())
+            .ToArray();
     }
 
     private static void PlaceContent(ITextBlock textBlock, List<string> result)
     {
-        for (int i = 0; i < textBlock.Height; i++)
+        var height = textBlock.GetHeight();
+        var content = textBlock.GetContent();
+        
+        for (int i = 0; i < height; i++)
         {
             var realPositionY = textBlock.Y + i;
             var charArray = result[realPositionY].ToCharArray();
 
-            for (int j = 0; j < textBlock.Content[i].Length; j++)
+            for (int j = 0; j < content[i].Length; j++)
             {
                 var realPositionX = textBlock.X + j;
-                charArray[realPositionX] = textBlock.Content[i][j];
+                charArray[realPositionX] = content[i][j];
             }
 
             result[realPositionY] = new string(charArray);
@@ -36,7 +46,7 @@ public class TextCanvas : ITextCanvas
 
     private static void EnterEnoughWhitespaceIntoBuffer(ITextBlock textBlock, List<string> textBuffer)
     {
-        var maximumY = textBlock.Y + textBlock.Height;
+        var maximumY = textBlock.Y + textBlock.GetHeight();
         
         while (textBuffer.Count < maximumY)
         {
@@ -45,7 +55,7 @@ public class TextCanvas : ITextCanvas
 
         for (int i = textBlock.Y; i < maximumY; i++)
         {
-            var maximumWidth = textBlock.X + textBlock.Width;
+            var maximumWidth = textBlock.X + textBlock.GetWidth();
 
             if (textBuffer[i].Length < maximumWidth)
             {

@@ -25,12 +25,17 @@ public class DeclareSqlStatement : IRenderToTextBlocks
         result.Add(new TextBlock(0, 0, new[] {" "}));
         result.Add(new TextBlock(0, 0, new[] {_name}));
         result.Add(new TextBlock(0, 0, new[] {" "}));
-        result.Add(new TextBlock(0, 0, new[] {"AS"}));
-        result.Add(new TextBlock(0, 0, new[] {" "}));
         result.Add(new TextBlock(0, 0, new[] {_type}));
 
-        var alignment = new HorizontalAlignment();
+        if (_defaultValue != null)
+        {
+            result.Add(new TextBlock(0, 0, new[] {" = "}));
+            result.Add(new TextBlock(0, 0, new[] {_defaultValue}));
+        }
 
-        return alignment.Align(0, 0, result.ToArray());
+        return new ITextBlock[]
+        {
+            new HorizontalTextBlockGroup(0, 0, result.ToArray())
+        };
     }
 }

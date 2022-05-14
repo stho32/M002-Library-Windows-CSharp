@@ -11,14 +11,14 @@
 
 ## Example DECLARE 
 
-- [ ] First Stage
-  - [ ] There is an object that represents a declare statement
-  - [ ] The object renders down to an ITextBlock that represents the complete statement
-  - [ ] The ITextBlock contains a sequencial list of ITextBlocks representing DECLARE, space, VariableName, space, DATATYPE
+- [X] First Stage
+  - [X] There is an object that represents a declare statement
+  - [X] The object renders down to an ITextBlock that represents the complete statement
+  - [X] The ITextBlock contains a sequencial list of ITextBlocks representing DECLARE, space, VariableName, space, DATATYPE
 
 - [ ] Second Stage
-  - [ ] The recursive order of the TextBlocks makes it necessary to ask every child block for its size and change the starting coordinates of the child and height and with of the parent TextBlock. 
-  - [ ] If the DECLARE is a block with multiple vertically ordered declarations the statements can be aligned against each other. All the DataTypes should be aligned above each other. Tabular.
+  - [X] The recursive order of the TextBlocks makes it necessary to ask every child block for its size and change the starting coordinates of the child and height and with of the parent TextBlock. 
+  - [O] If the DECLARE is a block with multiple vertically ordered declarations the statements can be aligned against each other. All the DataTypes should be aligned above each other. Tabular.
 
 - [ ] Third Stage
   - [ ] The TextBlocks are simply rendered onto a text canvas. They are more or less just put down into a buffer and converted to the matching string list.

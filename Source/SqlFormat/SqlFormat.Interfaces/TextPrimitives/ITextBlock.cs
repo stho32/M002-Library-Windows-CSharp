@@ -7,7 +7,7 @@ public interface ITextBlock
 {
     int X { get; }
     int Y { get; }
-    int Width { get; }
-    int Height { get; }
-    string[] Content { get; }
+    int GetWidth();
+    int GetHeight();
+    string[] GetContent();
 }
