@@ -1,7 +1,8 @@
-using SqlFormat.Interfaces;
+using SqlFormat.BL.TextPrimitives;
+using SqlFormat.Interfaces.TextPrimitives;
 using Xunit;
 
-namespace SqlFormat.BL.Tests;
+namespace SqlFormat.BL.Tests.TextPrimitives;
 
 public class TextCanvasTests 
 {

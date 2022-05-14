@@ -1,6 +1,6 @@
-using SqlFormat.Interfaces;
+using SqlFormat.Interfaces.TextPrimitives;
 
-namespace SqlFormat.BL;
+namespace SqlFormat.BL.TextPrimitives;
 
 public class TextBlock : ITextBlock
 {

@@ -1,6 +1,7 @@
+using SqlFormat.BL.TextPrimitives;
 using Xunit;
 
-namespace SqlFormat.BL.Tests;
+namespace SqlFormat.BL.Tests.TextPrimitives;
 
 public class TextBlockTests
 {

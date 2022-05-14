@@ -1,4 +1,4 @@
-namespace SqlFormat.Interfaces;
+namespace SqlFormat.Interfaces.TextPrimitives;
 
 /// <summary>
 /// The Canvas is where the text is drawn to.

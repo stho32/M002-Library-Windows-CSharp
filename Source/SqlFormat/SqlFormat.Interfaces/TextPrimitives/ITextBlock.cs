@@ -1,4 +1,4 @@
-namespace SqlFormat.Interfaces;
+namespace SqlFormat.Interfaces.TextPrimitives;
 
 /// <summary>
 /// TextBlocks are drawn onto the TextCanvas
