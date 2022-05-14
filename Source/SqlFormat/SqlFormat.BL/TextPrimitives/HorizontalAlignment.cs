@@ -1,0 +1,22 @@
+using SqlFormat.Interfaces;
+using SqlFormat.Interfaces.TextPrimitives;
+
+namespace SqlFormat.BL.TextPrimitives;
+
+public class HorizontalAlignment : IAlignment
+{
+    public ITextBlock[] Align(int x, int y, ITextBlock[] textBlocks)
+    {
+        var positionX = x;
+        var result = new List<ITextBlock>();
+
+        foreach (var sourceBlock in textBlocks)
+        {
+            var newBlock = new TextBlock(positionX, y, sourceBlock.Content);
+            result.Add(newBlock);
+            positionX += newBlock.Width;
+        }
+
+        return result.ToArray();
+    }
+}
