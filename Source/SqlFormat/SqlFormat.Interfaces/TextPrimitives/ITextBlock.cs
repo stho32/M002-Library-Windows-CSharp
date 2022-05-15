@@ -10,4 +10,6 @@ public interface ITextBlock
     int GetWidth();
     int GetHeight();
     string[] GetContent();
+
+    ITagCollection? Tags { get; }
 }

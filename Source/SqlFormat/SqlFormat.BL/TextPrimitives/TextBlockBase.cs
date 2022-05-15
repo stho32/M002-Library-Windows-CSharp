@@ -7,12 +7,16 @@ public abstract class TextBlockBase : ITextBlock
     public int X { get; }
     public int Y { get; }
 
-    protected string[] Content = {};
+    protected string[] Content = { };
 
-    protected TextBlockBase(int x, int y)
+    protected TextBlockBase(int x, int y, ITagCollection? tagCollection = null)
     {
         X = x;
         Y = y;
+        
+        Tags = tagCollection;
+        if (tagCollection == null)
+            Tags = new TagCollection(Array.Empty<string>());
     }
     public int GetWidth()
     {
@@ -47,6 +51,8 @@ public abstract class TextBlockBase : ITextBlock
 
         return Content;
     }
+
+    public ITagCollection? Tags { get; }
 
     protected abstract string[] GetContentInternal();
 }

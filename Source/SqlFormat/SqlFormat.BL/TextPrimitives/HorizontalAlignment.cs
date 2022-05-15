@@ -12,7 +12,7 @@ public class HorizontalAlignment : IAlignment
 
         foreach (var sourceBlock in textBlocks)
         {
-            var newBlock = new TextBlock(positionX, y, sourceBlock.GetContent());
+            var newBlock = new TextBlock(positionX, y, sourceBlock.GetContent(), sourceBlock.Tags);
             result.Add(newBlock);
             positionX += newBlock.GetWidth();
         }

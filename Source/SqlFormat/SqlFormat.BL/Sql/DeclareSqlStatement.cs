@@ -4,7 +4,7 @@ using SqlFormat.Interfaces.TextPrimitives;
 
 namespace SqlFormat.BL.Sql;
 
-public class DeclareSqlStatement : IRenderToTextBlocks
+public class DeclareSqlStatement : IStatement
 {
     private readonly string _name;
     private readonly string _type;
@@ -25,11 +25,11 @@ public class DeclareSqlStatement : IRenderToTextBlocks
         result.Add(new TextBlock(0, 0, new[] {" "}));
         result.Add(new TextBlock(0, 0, new[] {_name}));
         result.Add(new TextBlock(0, 0, new[] {" "}));
-        result.Add(new TextBlock(0, 0, new[] {_type}));
-
+        result.Add(new TextBlock(0, 0, new[] {_type}, new TagCollection(new []{"DECLARE_TYPE"})));
+        
         if (_defaultValue != null)
         {
-            result.Add(new TextBlock(0, 0, new[] {" = "}));
+            result.Add(new TextBlock(0, 0, new[] {" = "}, new TagCollection(new []{"DECLARE_EQUALS"})));
             result.Add(new TextBlock(0, 0, new[] {_defaultValue}));
         }
 
