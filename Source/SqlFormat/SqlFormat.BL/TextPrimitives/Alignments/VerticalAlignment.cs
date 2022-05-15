@@ -1,20 +1,20 @@
 using SqlFormat.Interfaces;
 using SqlFormat.Interfaces.TextPrimitives;
 
-namespace SqlFormat.BL.TextPrimitives;
+namespace SqlFormat.BL.TextPrimitives.Alignments;
 
-public class HorizontalAlignment : IAlignment
+public class VerticalAlignment : IAlignment
 {
     public ITextBlock[] Align(int x, int y, ITextBlock[] textBlocks)
     {
-        var positionX = x;
+        var positionY = y;
         var result = new List<ITextBlock>();
 
         foreach (var sourceBlock in textBlocks)
         {
-            var newBlock = new TextBlock(positionX, y, sourceBlock.GetContent(), sourceBlock.Tags);
+            var newBlock = new TextBlock(x, positionY, sourceBlock.GetContent());
             result.Add(newBlock);
-            positionX += newBlock.GetWidth();
+            positionY += newBlock.GetHeight();
         }
 
         return result.ToArray();

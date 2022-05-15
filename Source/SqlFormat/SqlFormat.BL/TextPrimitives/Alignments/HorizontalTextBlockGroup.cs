@@ -1,6 +1,6 @@
 using SqlFormat.Interfaces.TextPrimitives;
 
-namespace SqlFormat.BL.TextPrimitives;
+namespace SqlFormat.BL.TextPrimitives.Alignments;
 
 public class HorizontalTextBlockGroup : TextBlockBase
 {

@@ -30,19 +30,23 @@ public class DeclareSqlStatementTests
     [Fact]
     public void When_several_DECLARE_Statements_follow_each_other_AS_TYPE_and_DEFAULTS_are_aligned()
     {
-        var code = new Code();
-        
-        code.Add(new DeclareSqlStatement("@var1", "VARCHAR(100)", "'Hello'"));
-        code.Add(new DeclareSqlStatement("@bunch", "VARCHAR(100)", "'Another Hello'"));
-        code.Add(new DeclareSqlStatement("@birthday", "DATETIME", "{d '2022-01-01'}"));
+        var statement1 = new DeclareSqlStatement("@var1", "VARCHAR(100)", "'Hello'");
+        var statement2 = new DeclareSqlStatement("@bunch", "VARCHAR(100)", "'Another Hello'");
 
-        var result = code.Render();
+        var row1 = new TextBlockCollection(statement1.Render());
+        var row2 = new TextBlockCollection(statement2.Render());
 
-        Assert.Equal("DECLARE @var1     VARCHAR(100) = 'Hello'", result[0]);
-        Assert.Equal("DECLARE @bunch    VARCHAR(100) = 'Another Hello'", result[1]);
-        Assert.Equal("DECLARE @birthday DATETIME     = {d '2022-01-01'}", result[2]);
-        
-        Assert.Equal(3, result.Length);
+        var pos1 = row1.GetTagPosition("DECLARE_TYPE");
+        var pos2 = row2.GetTagPosition("DECLARE_TYPE");
+
+        var posMax = pos1;
+        if (pos2 > posMax) posMax = pos2;
+
+        row1.MoveTaggedBlockToColumn(posMax);
+        row2.MoveTaggedBlockToColumn(posMax);
+
+        Assert.Equal("DECLARE @var1  VARCHAR(100) = 'Hello'", row1.RenderToText());
+        Assert.Equal("DECLARE @bunch VARCHAR(100) = 'Another Hello'", row2.RenderToText());
     }
 }
 

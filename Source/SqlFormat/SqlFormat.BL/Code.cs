@@ -1,4 +1,5 @@
 using SqlFormat.BL.TextPrimitives;
+using SqlFormat.BL.TextPrimitives.Alignments;
 using SqlFormat.Interfaces;
 using SqlFormat.Interfaces.TextPrimitives;
 
